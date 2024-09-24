@@ -1,14 +1,13 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'onboarding_widget.dart' show OnboardingWidget;
+import 'details_widget.dart' show DetailsWidget;
 import 'package:flutter/material.dart';
 
-class OnboardingModel extends FlutterFlowModel<OnboardingWidget> {
-  ///  State fields for stateful widgets in this page.
+class DetailsModel extends FlutterFlowModel<DetailsWidget> {
+  ///  Local state fields for this page.
 
-  bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
-  String uploadedFileUrl = '';
+  bool? editingMode = false;
+
+  ///  State fields for stateful widgets in this page.
 
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
@@ -18,7 +17,6 @@ class OnboardingModel extends FlutterFlowModel<OnboardingWidget> {
   FocusNode? textFieldFocusNode2;
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
-  DateTime? datePicked;
 
   @override
   void initState(BuildContext context) {}
