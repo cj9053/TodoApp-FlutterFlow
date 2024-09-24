@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "User Document Schema",
+  "type": "object",
+  "properties": {
+    "created_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of when the user was created"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Email address of the user"
+    },
+    "uid": {
+      "type": "string",
+      "description": "Unique identifier for the user"
+    }
+  },
+  "required": ["created_time", "email", "uid"]
+}
