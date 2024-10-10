@@ -1,5 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/api_requests/api_calls.dart';
 import '/backend/backend.dart';
+import '/components/check_email_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -724,7 +726,31 @@ class _LogInWidgetState extends State<LogInWidget>
                                 createdTime: getCurrentTimestamp,
                               ));
 
+                          await SendWelcomeCall.call(
+                            to: currentUserEmail,
+                          );
+
                           context.pushNamedAuth('onboarding', context.mounted);
+
+                          await showModalBottomSheet(
+                            isScrollControlled: true,
+                            backgroundColor:
+                                FlutterFlowTheme.of(context).secondary,
+                            enableDrag: false,
+                            context: context,
+                            builder: (context) {
+                              return GestureDetector(
+                                onTap: () => FocusScope.of(context).unfocus(),
+                                child: Padding(
+                                  padding: MediaQuery.viewInsetsOf(context),
+                                  child: const SizedBox(
+                                    height: 250.0,
+                                    child: CheckEmailWidget(),
+                                  ),
+                                ),
+                              );
+                            },
+                          ).then((value) => safeSetState(() {}));
                         },
                         text: 'Sign up',
                         options: FFButtonOptions(
